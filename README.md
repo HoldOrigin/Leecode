@@ -70,6 +70,7 @@
     }
 ###  2、滑动窗口
       1、滑动窗口之固定大小
+          
       2、滑动窗口之浮动窗口大小
 
 ## List  双指针，快慢指针
@@ -87,6 +88,22 @@
           }
           return pre;
       }
+      #### 递归倒序， 递归的几个关键点： 1、递归结束的条件 2、进入递归 3、递归的动作
+          ListNode *recursive(ListNode *cur, ListNode *pre) {
+              //终止条件： 递归到链表结尾， cur == nullptr, 返回翻转后的尾节点
+              if (cur == nullptr) {
+                  return pre;
+              }
+              // 递归后继节点
+              ListNode * res = recursive(cur->next, cur);
+              // cur 节点指回 pre;
+              cur->next = pre;
+              // 返回翻转后的头结点
+              return res;
+          }
+          ListNode * reverseList(ListNode * head) {
+              retrun recusive(head, nullptr);
+          }
   ### 2、链表有环， 找到存在换的节
     1、方法 快慢指针
      ListNode * detectCycle(ListNode *head) {
@@ -134,5 +151,12 @@
 
 ## tree
 ### dfs 深度优先遍历
+    计算Tree的高度
+    int depthOfTree(TreeNode * node) {
+        // 结束标志到叶子结点
+        if (node == nullptr) return 0;
+        // 比较节点的左右子树的最大， 需要探索到树的最深处
+        return Max(depthOfTree(node->left), depthOfTree(node->right)) + 1;    
+    }
 
 ### bfs 广度优先遍历
