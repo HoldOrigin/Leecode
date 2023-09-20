@@ -1,7 +1,9 @@
 # Leecode
 刷题笔记
-```array```  数组操作也是主要涉及到指针的操作，滑动窗口涉及到双指针，指针之间的距离为窗口的大小
-    1、字符数组 char[], 翻转首尾的原因字母;  首尾双指针法， 注意判断首尾指针的边界和相遇问题
+## 1、array 
+数组操作也是主要涉及到指针的操作，滑动窗口涉及到双指针，指针之间的距离为窗口的大小
+    
+### 1、字符数组 char[], 翻转首尾的原因字母;  首尾双指针法， 注意判断首尾指针的边界和相遇问题
     char * reverseVowels(char* s) {
         if(s == nullptr) {
           return s;
@@ -66,12 +68,12 @@
             }
             return res;
     }
-    2、滑动窗口
+###  2、滑动窗口
       1、滑动窗口之固定大小
       2、滑动窗口之浮动窗口大小
 
-```List```  双指针，快慢指针
-  1、链表倒序
+## List  双指针，快慢指针
+  ### 1、链表倒序
       ListNode* reverseList(ListNode *head) {
           if (head == nullptr || head->next == nullptr) {
             return nullptr; }
@@ -85,7 +87,7 @@
           }
           return pre;
       }
-  2、链表有环， 找到存在换的节
+  ### 2、链表有环， 找到存在换的节
     1、方法 快慢指针
      ListNode * detectCycle(ListNode *head) {
            if(head == nullptr || head->next == nullptr) {
@@ -130,4 +132,7 @@
               return nullptr;
          }
 
-    ```tree```
+## tree
+### dfs 深度优先遍历
+
+### bfs 广度优先遍历
