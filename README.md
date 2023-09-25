@@ -160,3 +160,40 @@
     }
 
 ### bfs 广度优先遍历
+    从上到下打印二叉树， 使用队列保存节点
+    void print(TreeNode * pRoot) {
+        if (pRoot == nullptr) {
+            return;
+        }
+        queue<TreeNode*> nodes;
+        nodes.push_back(pRoot);
+        int nextLevel = 0;
+        int toBePrinted = 1;
+        while(!nodes.empty()) {
+            // 每次循环只打印一个节点， 同时将左右子树保存在队列中
+            TreeNode * pNode = nodes.front();
+            printf("%d", pNode->value);
+
+            //将当前节点的左右节点加入到队列中
+            if (pNode->left != nullptr){
+                nodes.push(pNode->left);
+                ++nextLevel;
+            }
+            if (pNode->right != nullptr) {
+                nodes.push(pNode->right);
+                ++nextLevel;
+            }
+            // 打印节点后，弹出节点
+             nodes.pop();
+             // ToBePrinted 表示当前层还没有打印的节点
+             --toBePrinted;
+             if (toBePrinted === 0) {
+                 printf("\n");
+                 // 当前层级的节点个数
+                 toBePrinted = nextLevel;
+                 nextLevel = 0;
+             }
+        }
+    }
+    
+    
